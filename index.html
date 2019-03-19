@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<div class="circle"></div>
+<div class="text">HEY QUINN</div>
+
+</html>
+
+<style>
+
+.circle{
+  background: red;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+}
+.text{
+  color: blue;
+  position: absolute;
+}
+
+
+</style>
+
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+<script>
+
+	var circle = $(".circle");
+console.log(circle[0].offsetHeight);
+$( document ).on( "mousemove", function( event ) {
+  var screenWidth = $ (document).width();
+  var cursorX = event.pageX;
+  var cursorY = event.pageY;
+  var opacity =(screenWidth - cursorX) / screenWidth;
+  $(".circle").css({
+    "opacity": opacity,
+    "left": cursorX,
+    "top": cursorY
+  })
+});
+
+var text= $(".text");
+console.log(text[0].offsetHeight);
+$( document ).on( "mousemove", function( event ) {
+  var screenWidth = $ (document).width();
+  var cursorX = event.pageX;
+  var cursorY = event.pageY;
+  var opacity =(screenWidth - cursorX) / screenWidth;
+  $(".text").css({
+    "opacity": opacity,
+    "right": cursorX,
+    "top": cursorY
+  })
+});
+
+
+	</script>
+
+
+
+
